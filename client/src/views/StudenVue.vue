@@ -45,5 +45,7 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
-
+    form {
+        display: block;
+    }
 </style>
