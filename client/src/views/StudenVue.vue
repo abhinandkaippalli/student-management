@@ -4,16 +4,16 @@
             <div class="col">
                 <form>
                     <label for="name">Name:</label>
-                    <input type="text" id="name" name="name" required>
+                    <input type="text" v-model="studentDetails.name" id="name" name="name" required>
 
                     <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required>
+                    <input type="email" v-model="studentDetails.email" id="email" name="email" required>
 
                     <label for="phone">Phone number:</label>
-                    <input type="tel" id="phone" name="phone" required>
+                    <input type="tel" v-model="studentDetails.phNumber" id="phone" name="phone" required>
 
                     <label for="age">Age:</label>
-                    <input type="number" id="age" name="age" required>
+                    <input type="number" v-model="studentDetails.age" id="age" name="age" required>
                 </form>
             </div>
         </div>
@@ -22,6 +22,7 @@
 
 <script lang="ts">
 import { defineComponent, reactive } from 'vue'
+import StudentService from '@/services/StudentService'
 import '@/assets/styles/index.scss'
 import '@/assets/styles/_variables.scss'
 import Student from '@/types/student'
@@ -36,6 +37,8 @@ export default defineComponent({
             age: 0,
             phNumber: 0
         })
+
+    
 
         return {
             studentDetails

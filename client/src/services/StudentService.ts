@@ -1,7 +1,7 @@
 import axios from "axios";
 import Student from "@/types/student";
 
-export class StudentService {
+export default class StudentService {
     static URL = "http://localhost:3000/api/post"
 
     static fetchStudent(studentId: number) {
