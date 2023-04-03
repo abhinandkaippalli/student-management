@@ -3,14 +3,25 @@
 </template>
 
 <script lang="ts">
-import { defineComponent} from 'vue'
+import { defineComponent, reactive } from 'vue'
 import '@/assets/styles/index.scss'
+import Student from '@/types/student'
 
 export default defineComponent({
   name: 'StudentVue',
 
+  setup() {
+    const studentDetails = reactive<Student>({
+      name: '',
+      email: '',
+      age: 0,
+      phNumber: 0
+    })
 
-
+    return {
+      studentDetails
+    }
+  }
 })
 </script>
 
