@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <form @submit.prevent="">
+                <form @submit.prevent="addStudent">
                     <label for="name">Name:</label>
                     <input type="text" v-model="studentDetails.name" id="name" name="name" required>
 
@@ -10,7 +10,7 @@
                     <input type="email" v-model="studentDetails.email" id="email" name="email" required>
 
                     <label for="phone">Phone number:</label>
-                    <input type="tel" v-model="studentDetails.phNumber" id="phone" name="phone" required>
+                    <input type="tel" v-model="studentDetails.place" id="phone" name="phone" required>
 
                     <label for="age">Age:</label>
                     <input type="number" v-model="studentDetails.age" id="age" name="age" required>
@@ -20,6 +20,9 @@
             </div>
         </div>
     </div>
+    <pre>
+                    {{ studentDetails }}
+                </pre>
 </template>
 
 <script lang="ts">
@@ -37,20 +40,29 @@ export default defineComponent({
             name: '',
             email: '',
             age: 0,
-            phNumber: 0
+            place: ''
         })
 
-    
+        const addStudent = () => {
+            StudentService.createStudent(studentDetails)
+                .then(() => {
+                    console.log('Student added successfully')
+                })
+                .catch((error) => {
+                    console.log(`Error adding student: ${error}`)
+                })
+        }
 
         return {
-            studentDetails
+            studentDetails,
+            addStudent
         }
     }
 })
 </script>
 
 <style lang="scss">
-    form {
-        display: block;
-    }
+form {
+    display: block;
+}
 </style>

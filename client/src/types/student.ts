@@ -2,7 +2,7 @@ interface Student {
     name: string,
     email: string,
     age: number,
-    phNumber: number
+    place: string
 }
 
 export default Student
