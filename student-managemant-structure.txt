@@ -1,0 +1,37 @@
+Project Structure.
+
+- backend/
+    - node_modules/
+    - controllers/
+        - students.js
+        - courses.js
+        - enrollments.js
+        - departments.js
+    - models/
+        - student.js
+        - course.js
+        - enrollment.js
+        - department.js
+    - routes/
+        - api.js
+    - app.js
+    - package.json
+- frontend/
+    - node_modules/
+    - public/
+        - index.html
+    - src/
+        - components/
+            - StudentTable.vue
+            - StudentForm.vue
+            - CourseDropdown.vue
+        - views/
+            - Students.vue
+            - Courses.vue
+            - Enrollments.vue
+            - Departments.vue
+        - App.vue
+        - main.js
+    - package.json
+- .gitignore
+- README.md
