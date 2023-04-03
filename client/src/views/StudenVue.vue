@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <form>
+                <form @submit.prevent="">
                     <label for="name">Name:</label>
                     <input type="text" v-model="studentDetails.name" id="name" name="name" required>
 
@@ -14,6 +14,8 @@
 
                     <label for="age">Age:</label>
                     <input type="number" v-model="studentDetails.age" id="age" name="age" required>
+
+                    <button type="submit">Submit</button>
                 </form>
             </div>
         </div>
