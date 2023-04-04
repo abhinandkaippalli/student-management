@@ -4,6 +4,11 @@ import Student from "@/types/student";
 export default class StudentService {
     static URL = "http://localhost:3000/api/post"
 
+    static fetchAllStudent() {
+        const dataURL = `${this.URL}`
+        return axios.get<Student>(dataURL)
+    }
+
     static fetchStudent(studentId: number) {
         const dataURL = `${this.URL}/${studentId}`
         return axios.get(dataURL)

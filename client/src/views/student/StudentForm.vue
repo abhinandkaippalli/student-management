@@ -1,7 +1,7 @@
 <template>
     <div class="container">
-        <div class="row">
-            <div class="col-12-1">
+        <div class="row justify-center">
+            <div class="col-6-1">
                 <form @submit.prevent="addStudent">
                     <div class="form-group">
                         <label for="name">Name:</label>
@@ -68,6 +68,7 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
+@import '../../assets/styles/variables.scss';
 
 // Define form styles
 form {
@@ -83,7 +84,7 @@ form {
     textarea {
       width: 100%;
       padding: 10px;
-      border: 4px solid #421bce;
+      border: 4px solid $secondary;
       border-radius: 5px;
       font-size: 16px;
       line-height: 1.5;
