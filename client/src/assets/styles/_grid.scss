@@ -1,0 +1,46 @@
+@use "sass:math";
+@import 'breakpoint';
+
+// Define grid values
+$grid-columns: 12;
+$grid-gaps: (
+  "0": 0,
+  "1": 10px,
+  "2": 20px,
+  "3": 30px,
+);
+$layout-values: flex-start, flex-end, center, space-between, space-around;
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+.row {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+// Define column style
+@each $key, $val in $grid-gaps {
+  @for $i from 1 through $grid-columns {
+    .col-#{$i}-#{$key} {
+      box-sizing: border-box;
+      flex-grow: 0;
+      padding-left: $val;
+      padding-right: $val;
+      width: math.div($i * 100%, $grid-columns);
+    }
+  }
+}
+
+// justify content classes
+@each $val in $layout-values {
+  .justify-#{$val} {
+    justify-content: $val;
+  }
+}
+
+
