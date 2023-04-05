@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
+import ViewAllStudent from '@/views/student/ViewAllStudent.vue'
 import StudentVue from '@/views/student/StudentForm.vue'
 import ViewStudent from '@/views/student/ViewStudent.vue'
 import EditStudent from '@/views/student/EditStudent.vue'
@@ -6,6 +7,11 @@ import EditStudent from '@/views/student/EditStudent.vue'
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
+    name: 'all-student',
+    component: ViewAllStudent
+  },
+  {
+    path: '/add-student',
     name: 'add-student',
     component: StudentVue
   },
