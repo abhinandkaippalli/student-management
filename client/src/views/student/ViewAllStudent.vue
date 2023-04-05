@@ -12,7 +12,7 @@
       <tbody>
         <tr>
           <td scope="row">1</td>
-          <td>Abhinand K</td>
+          <td>kjdsk</td>
           <td>abhinandkaippallil123@gmail.com</td>
           <td>
             <button class="btn-info text-white fw-7">Delete</button>
@@ -33,12 +33,7 @@ export default defineComponent({
   name: 'ViewAllStudent',
 
   setup() {
-    const studentDetails = reactive<Student>({
-      name: '',
-      email: '',
-      age: 0,
-      place: ''
-    })
+    const studentDetails = reactive<Student[]>([])
 
     onMounted( async () => {
       try {
@@ -47,12 +42,11 @@ export default defineComponent({
         
       } catch (error) {
         console.log(error);
-        
       }
     })
 
     return {
-      studentDetails
+      studentDetails,
     }
   }
 })
