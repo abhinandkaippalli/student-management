@@ -7,14 +7,21 @@
 
 .table {
     @extend %table-layout;
-    thead {
-        background-color: map-get($colors, "purple" );
-        th {
-            padding: $base-padding;
-        }
+    th {
+        padding: $base-padding;
     }
+
     td {
         padding: $base-padding;
     }
 }
 
+@each $key,
+$val in $colors {
+    .table-#{$key} {
+        @extend .table;
+        thead {
+            background-color: $val;
+        }
+    }
+}
