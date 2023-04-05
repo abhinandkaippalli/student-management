@@ -6,8 +6,7 @@
           <th scope="col">#</th>
           <th scope="col">Name</th>
           <th scope="col">Email</th>
-          <th></th>
-          <th></th>
+          <th colspan="2"></th>
         </tr>
       </thead>
       <tbody>
@@ -16,25 +15,8 @@
           <td>Abhinand K</td>
           <td>abhinandkaippallil123@gmail.com</td>
           <td>
-            <button>Delete</button>
-          </td>
-          <td>
-            <button>
-              View
-            </button>
-          </td>
-        </tr>
-        <tr>
-          <td scope="row">1</td>
-          <td>Abhinand K</td>
-          <td>abhinandkaippallil@gmail.com</td>
-          <td>
-            <button>Delete</button>
-          </td>
-          <td>
-            <button>
-              View
-            </button>
+            <button class="btn-info text-white fw-7">Delete</button>
+            <button class="btn-primary ml-1 text-white fw-7">View</button>
           </td>
         </tr>
       </tbody>
