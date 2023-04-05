@@ -25,10 +25,35 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, reactive, onMounted } from 'vue'
+import Student from '@/types/student';
+import StudentService from '@/services/StudentService';
 
 export default defineComponent({
   name: 'ViewAllStudent',
 
+  setup() {
+    const studentDetails = reactive<Student>({
+      name: '',
+      email: '',
+      age: 0,
+      place: ''
+    })
+
+    onMounted( async () => {
+      try {
+        const res = await StudentService.fetchAllStudent()
+        console.log(res.data);
+        
+      } catch (error) {
+        console.log(error);
+        
+      }
+    })
+
+    return {
+      studentDetails
+    }
+  }
 })
 </script>
