@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="container mt-3">
         <div class="row justify-center">
             <div class="col-6-1">
                 <form @submit.prevent="addStudent">
@@ -28,15 +28,11 @@
             </div>
         </div>
     </div>
-    <pre>
-           {{ studentDetails }}
-        </pre>
 </template>
 
 <script lang="ts">
 import { defineComponent, reactive } from 'vue'
 import StudentService from '@/services/StudentService'
-import '@/assets/styles/grid.scss'
 import Student from '@/types/student'
 
 export default defineComponent({
@@ -68,7 +64,7 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
-@import '../../assets/styles/variables.scss';
+@import '../../assets/styles/_variables.scss';
 
 // Define form styles
 form {
