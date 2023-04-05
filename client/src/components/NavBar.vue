@@ -6,6 +6,10 @@
                 <div class="ml-1 font-lg fw-7">
                     Student Management
                 </div>
+                <div>
+                    <router-link to="/" class="">View Students</router-link>
+                    <router-link to="/add-student" class="">Add Student</router-link>
+                </div>
             </div>
         </div>
     </nav>
