@@ -1,16 +1,20 @@
 <template>
-    <nav>
-        <div class="navbar-secondary">
-            <div class="container">
-                <i class="fa-solid fa-school font-lg"></i>
-                <div class="ml-1 font-lg fw-7">
-                    Student Management
-                </div>
-                <div>
-                    <router-link to="/" class="">View Students</router-link>
-                    <router-link to="/add-student" class="">Add Student</router-link>
+    <nav class="navbar-secondary text-white">
+        <div class="navbar-container font-lg">
+            <div class="navbar-brand">
+                <i class="fa-solid fa-school"></i>
+                <div class="ml-1 fw-7">
+                    STUDENT MANAGEMENT
                 </div>
             </div>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <router-link to="/" class="nav-link">View Students</router-link>
+                </li>
+                <li class="nav-item">
+                    <router-link to="/add-student" class="nav-link">Add Student</router-link>
+                </li>
+            </ul>
         </div>
     </nav>
 </template>
@@ -24,6 +28,4 @@ export default defineComponent({
 })
 </script>
 
-<style lang="scss">
-
-</style>
+<style lang="scss"></style>
