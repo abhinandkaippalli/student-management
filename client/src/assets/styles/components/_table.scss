@@ -1,0 +1,20 @@
+%table-layout {
+    width: 100%;
+    text-align: center;
+    height: auto;
+    border-collapse: collapse;
+}
+
+.table {
+    @extend %table-layout;
+    thead {
+        background-color: map-get($colors, "purple" );
+        th {
+            padding: $base-padding;
+        }
+    }
+    td {
+        padding: $base-padding;
+    }
+}
+

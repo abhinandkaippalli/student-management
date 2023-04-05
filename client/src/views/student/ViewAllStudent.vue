@@ -1,27 +1,44 @@
 <template>
-  <div class="container">
+  <div class="container mt-4">
     <table class="table">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Name</th>
-      <th scope="col">Email</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>@mdo</td>
-      <td>
-        <button>Remove</button>
-      </td>
-      <td>
-        <button>Edit</button>
-      </td>
-    </tr>
-  </tbody>
-</table>
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Name</th>
+          <th scope="col">Email</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td scope="row">1</td>
+          <td>Abhinand K</td>
+          <td>abhinandkaippallil123@gmail.com</td>
+          <td>
+            <button>Delete</button>
+          </td>
+          <td>
+            <button>
+              View
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td scope="row">1</td>
+          <td>Abhinand K</td>
+          <td>abhinandkaippallil@gmail.com</td>
+          <td>
+            <button>Delete</button>
+          </td>
+          <td>
+            <button>
+              View
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </template>
 
