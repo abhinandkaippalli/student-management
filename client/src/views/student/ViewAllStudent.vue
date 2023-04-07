@@ -10,14 +10,15 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td scope="row">1</td>
-          <td>kjdsk</td>
-          <td>abhinandkaippallil123@gmail.com</td>
+        <tr v-for="(student, index) in studentDetails" :key="index">
+          <td scope="row">{{ index + 1 }}</td>
+          <td>{{ student.name }}</td>
+          <td>{{ student.email }}</td>
           <td>
-            <button class="btn-info text-white fw-7">Delete</button>
+            <button class="btn-info text-white fw-7" @click="removeStudent(student.id)">Delete</button>
             <button class="btn-primary ml-1 text-white fw-7">View</button>
           </td>
+          <pre>{{ student.id }}</pre>
         </tr>
       </tbody>
     </table>
@@ -25,29 +26,40 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive, onMounted } from 'vue'
-import Student from '@/types/student';
+import { defineComponent, ref, onMounted } from 'vue';
+import { Student } from '@/types/student';
 import StudentService from '@/services/StudentService';
 
 export default defineComponent({
   name: 'ViewAllStudent',
 
   setup() {
-    const studentDetails = reactive<Student[]>([])
+    const studentDetails = ref<Student[]>([]);
 
-    onMounted( async () => {
+    onMounted(async () => {
       try {
-        const res = await StudentService.fetchAllStudent()
-        console.log(res.data);
-        
+        const responseData = await StudentService.fetchAllStudent();
+        studentDetails.value = responseData.data;
+        console.log(studentDetails.value);
       } catch (error) {
         console.log(error);
       }
-    })
+    });
+
+    const removeStudent = async (studentId : any) => {
+      await StudentService.deleteStudent(studentId)
+      .then((res) => {
+        console.log(res);
+      }).catch((err) => {
+        console.log(err);
+        
+      })
+    }
 
     return {
       studentDetails,
-    }
-  }
-})
+      removeStudent
+    };
+  },
+});
 </script>
