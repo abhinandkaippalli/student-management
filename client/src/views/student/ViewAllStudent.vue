@@ -15,10 +15,11 @@
           <td>{{ student.name }}</td>
           <td>{{ student.email }}</td>
           <td>
-            <button class="btn-info text-white fw-7" @click="removeStudent(student.id)">Delete</button>
-            <button class="btn-primary ml-1 text-white fw-7">View</button>
+            <button class="btn-info text-white fw-7" @click="removeStudent(student._id)">Delete</button>
+            <router-link :to="`/view-student/${student._id}`">
+              <button class="btn-primary ml-1 text-white fw-7">View</button>
+            </router-link>
           </td>
-          <pre>{{ student.id }}</pre>
         </tr>
       </tbody>
     </table>
@@ -40,19 +41,20 @@ export default defineComponent({
       try {
         const responseData = await StudentService.fetchAllStudent();
         studentDetails.value = responseData.data;
-        console.log(studentDetails.value);
       } catch (error) {
         console.log(error);
       }
     });
 
-    const removeStudent = async (studentId : any) => {
+    const removeStudent = async (studentId: string) => {
       await StudentService.deleteStudent(studentId)
-      .then((res) => {
-        console.log(res);
+      .then(() => {
+        console.log("Removed Successfully!!");
+        studentDetails.value = studentDetails.value.filter((student) => student._id !== studentId);
+        console.log("hi");
+        
       }).catch((err) => {
         console.log(err);
-        
       })
     }
 

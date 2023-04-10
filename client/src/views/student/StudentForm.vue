@@ -23,7 +23,7 @@
                         <input type="text" v-model="studentDetails.age" id="age" name="age" required>
                     </div>
 
-                    <button type="submit">Submit</button>
+                    <button type="submit" class="btn-primary text-white fw-6 font-md">Submit</button>
                 </form>
             </div>
         </div>
@@ -31,15 +31,17 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive } from 'vue'
+import { defineComponent, ref } from 'vue'
 import StudentService from '@/services/StudentService'
-import Student from '@/types/student'
+//import { Student } from '@/types/student'
+import { NewStudent } from '@/types/newStudent'
 
 export default defineComponent({
     name: 'StudentVue',
 
     setup() {
-        const studentDetails = reactive<Student>({
+        
+        const studentDetails = ref<NewStudent>({
             name: '',
             email: '',
             age: 0,
@@ -47,10 +49,12 @@ export default defineComponent({
         })
 
         const addStudent = () => {
-            StudentService.createStudent(studentDetails)
+            StudentService.createStudent(studentDetails.value)
                 .then(() => {
+                    console.log(studentDetails.value);
                     console.log('Student added successfully')
                 }).catch((error) => {
+                    console.log(studentDetails.value);
                     console.log(`Error adding student: ${error}`)
                 })
         }
@@ -90,17 +94,6 @@ form {
       resize: vertical;
       min-height: 100px;
     }
-  }
-
-  button[type="submit"] {
-    background-color: #007bff;
-    border: none;
-    border-radius: 5px;
-    color: #fff;
-    padding: 10px 20px;
-    font-size: 16px;
-    line-height: 1.5;
-    cursor: pointer;
   }
 }
 

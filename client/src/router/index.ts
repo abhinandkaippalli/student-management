@@ -16,7 +16,7 @@ const routes: Array<RouteRecordRaw> = [
     component: StudentVue
   },
   {
-    path: '/view-student',
+    path: '/view-student/:studentId',
     name: 'view-student',
     component: ViewStudent
   },

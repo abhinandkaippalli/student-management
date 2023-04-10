@@ -1,3 +1,5 @@
+import { Student } from "@/types/student";
+
 export interface ResponseData {
-    data : any
+    data : Student[];
 }
