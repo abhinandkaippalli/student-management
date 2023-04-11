@@ -12,7 +12,7 @@ export default class StudentService {
         return axios.get(dataURL)
     }
 
-    static fetchStudent(studentId: number): Promise<ResponseData> {
+    static fetchStudent(studentId: string): Promise<ResponseData> {
         const dataURL = `${this.URL}/${studentId}`
         return axios.get(dataURL)
     }
