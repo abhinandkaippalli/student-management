@@ -1,0 +1,32 @@
+@mixin list-group($list-group-bg: #f5f5f5, $list-group-border: #ddd) {
+    list-style: none;
+    border-radius: 3px;
+    overflow: hidden;
+    width: 500px;
+    height: auto;
+
+    .list-group-item {
+        display: block;
+        padding: $base-padding*2 $base-padding*5;
+        background-color: lighten($list-group-bg, 30);
+        border: $base-border-thickness*3 solid;
+        border-color: darken($list-group-border, 0);
+        color: #312828;
+        text-decoration: none;
+    }
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+
+.list-group {
+    @include list-group;
+}
+
+@each $key, $val in $colors {
+    .list-group-#{$key} {
+        @include list-group($val, $val);    
+    }
+}
