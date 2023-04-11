@@ -8,6 +8,10 @@
           <li class="list-group-item">{{ studentDetails.age }}</li>
           <li class="list-group-item">{{ studentDetails.place }}</li>
         </ul>
+        <div class="mt-1">
+          <button class="btn-error">Edit</button>
+          <button class="btn-secondary ml-1">Save</button>
+        </div>
       </div>
     </div>
   </div>
