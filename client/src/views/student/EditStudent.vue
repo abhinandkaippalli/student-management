@@ -1,5 +1,5 @@
 <template>
-  <h1>Edit page</h1>
+  <h1>This is for edit page</h1>
 </template>
 
 <script lang="ts">
