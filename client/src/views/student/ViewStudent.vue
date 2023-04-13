@@ -12,8 +12,8 @@
     </div>
   </div>
   <pre>
-    {{ studentDetails }}
-  </pre>
+      {{ studentDetails }}
+    </pre>
 </template>
 
 <script lang="ts">
@@ -29,15 +29,20 @@ export default defineComponent({
 
     const route = useRoute();
     const studentId = ref(route.params.studentId as string);
-    const studentDetails = ref<Student[]>([])
+    const studentDetails = ref<Student>({
+      _id: '',
+      age: 0,
+      email: '',
+      name: '',
+      place: ''
+    })
 
     onMounted(async () => {
       try {
         const res = await StudentService.fetchStudent(studentId.value)
-        console.log(res.data);
         studentDetails.value = res.data
         console.log(studentDetails.value);
-        
+
       } catch (error) {
         console.log(error);
       }

@@ -1,8 +1,8 @@
 import axios from "axios";
-//import { Student } from "@/types/student";
+import { Student } from "@/types/student";
 import { ResponseData } from "@/types/responseData";
 import { NewStudent } from "@/types/newStudent";
-
+import { StudentIdRes } from "@/types/studentIdRes";
 
 export default class StudentService {
     static URL = "http://localhost:3000/api/post"
@@ -12,7 +12,7 @@ export default class StudentService {
         return axios.get(dataURL)
     }
 
-    static fetchStudent(studentId: string): Promise<ResponseData> {
+    static fetchStudent(studentId: string): Promise<StudentIdRes> {
         const dataURL = `${this.URL}/${studentId}`
         return axios.get(dataURL)
     }

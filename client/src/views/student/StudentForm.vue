@@ -14,8 +14,8 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="phone">Phone number:</label>
-                        <input type="tel" v-model="studentDetails.place" id="phone" name="phone" required>
+                        <label for="phone">Place:</label>
+                        <input type="text" v-model="studentDetails.place" id="phone" name="phone" required>
                     </div>
 
                     <div class="form-group">

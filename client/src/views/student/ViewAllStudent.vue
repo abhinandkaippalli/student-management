@@ -25,7 +25,7 @@
           </td>
         </tr>
       </tbody>
-    </table>  
+    </table>
   </div>
 </template>
 
@@ -33,13 +33,10 @@
 import { defineComponent, ref, onMounted } from 'vue';
 import { Student } from '@/types/student';
 import StudentService from '@/services/StudentService';
-
 export default defineComponent({
   name: 'ViewAllStudent',
-
   setup() {
     const studentDetails = ref<Student[]>([]);
-
     onMounted(async () => {
       try {
         const responseData = await StudentService.fetchAllStudent();
@@ -48,7 +45,6 @@ export default defineComponent({
         console.log(error);
       }
     });
-
     const removeStudent = async (studentId: string) => {
       await StudentService.deleteStudent(studentId)
       .then(() => {
@@ -60,7 +56,6 @@ export default defineComponent({
         console.log(err);
       })
     }
-
     return {
       studentDetails,
       removeStudent

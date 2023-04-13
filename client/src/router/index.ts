@@ -21,7 +21,7 @@ const routes: Array<RouteRecordRaw> = [
     component: ViewStudent
   },
   {
-    path: '/edit-student',
+    path: '/edit-student/:studentId',
     name: 'edit-student',
     component: EditStudent
   },

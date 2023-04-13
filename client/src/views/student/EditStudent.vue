@@ -33,18 +33,32 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue'
+import { defineComponent, ref, onMounted } from 'vue'
+import StudentService from '@/services/StudentService';
+import { Student } from '@/types/student';
+// import { ResponseData } from '@/types/responseData';
 import { useRoute } from 'vue-router';
 
 export default defineComponent({
     name: 'EditStudent',
 
     setup() {
-        const route = useRoute();
-        const studentId = ref(route.params.studentId as string)
+    const route = useRoute();
+    const studentId = ref(route.params.studentId as string);
+    const studentDetails = ref<Student>();
 
-        return { studentId }
-    }
+    onMounted(async () => {
+      try {
+        const res = await StudentService.fetchStudent(studentId.value);
+        studentDetails.value = res.data;
+        console.log(res);
+      } catch (error) {
+        console.error(error);
+      }
+    });
+
+    return { studentDetails };
+  }
 
 })
 </script>
