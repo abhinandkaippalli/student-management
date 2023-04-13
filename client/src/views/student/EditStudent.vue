@@ -24,6 +24,9 @@
                             <input type="text" v-model="studentDetails.age" id="age" name="age" required>
                         </div>
                         <button type="submit" class="btn-primary text-white fw-6 font-md">Submit</button>
+                        <router-link :to="`/all-student`" >
+                            <button class="btn-secondary text-white fw-6 font-md ml-1">Back</button>
+                        </router-link>
                     </form>
                 </div>
             </div>
