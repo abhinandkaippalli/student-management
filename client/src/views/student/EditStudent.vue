@@ -3,39 +3,42 @@
         <div class="container mt-3">
             <div class="row justify-center">
                 <div class="col-6-2">
-                    <form>
+                    <form @submit.prevent="updateSubmit()">
                         <div class="form-group">
                             <label for="name">Name:</label>
-                            <input type="text" id="name" name="name" required>
+                            <input type="text" v-model="studentDetails.name" id="name" name="name" required>
                         </div>
 
                         <div class="form-group">
                             <label for="email">Email:</label>
-                            <input type="email" id="email" name="email" required>
+                            <input type="email" v-model="studentDetails.email" id="email" name="email" required>
                         </div>
 
                         <div class="form-group">
-                            <label for="phone">Phone number:</label>
-                            <input type="tel" id="phone" name="phone" required>
+                            <label for="phone">Place:</label>
+                            <input type="tel" v-model="studentDetails.place" id="phone" name="phone" required>
                         </div>
 
                         <div class="form-group">
                             <label for="age">Age:</label>
-                            <input type="text" id="age" name="age" required>
+                            <input type="text" v-model="studentDetails.age" id="age" name="age" required>
                         </div>
-
                         <button type="submit" class="btn-primary text-white fw-6 font-md">Submit</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
+    <pre>
+        {{ studentDetails }}
+    </pre>
 </template>
 
 <script lang="ts">
 import { defineComponent, ref, onMounted } from 'vue'
 import StudentService from '@/services/StudentService';
-import { Student } from '@/types/student';
+// import { Student } from '@/types/student';
+import { NewStudent } from '@/types/newStudent';
 // import { ResponseData } from '@/types/responseData';
 import { useRoute } from 'vue-router';
 
@@ -45,7 +48,12 @@ export default defineComponent({
     setup() {
     const route = useRoute();
     const studentId = ref(route.params.studentId as string);
-    const studentDetails = ref<Student>();
+    const studentDetails = ref<NewStudent>({
+      age: 0,
+      email: '',
+      name: '',
+      place: ''
+    });
 
     onMounted(async () => {
       try {
@@ -57,7 +65,17 @@ export default defineComponent({
       }
     });
 
-    return { studentDetails };
+    const updateSubmit = async () => {
+        // const { _id, ...updatedStudentDetails} = studentDetails.value
+        try {
+            const res = await StudentService.updateStudent(studentId.value, studentDetails.value)
+            console.log(res);
+        } catch (error) {
+            console.log(error);      
+        }
+    }
+
+    return { studentDetails, updateSubmit };
   }
 
 })

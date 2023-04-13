@@ -11,9 +11,6 @@
       </div>
     </div>
   </div>
-  <pre>
-      {{ studentDetails }}
-    </pre>
 </template>
 
 <script lang="ts">

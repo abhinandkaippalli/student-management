@@ -1,5 +1,5 @@
 import axios from "axios";
-import { Student } from "@/types/student";
+// import { Student } from "@/types/student";
 import { ResponseData } from "@/types/responseData";
 import { NewStudent } from "@/types/newStudent";
 import { StudentIdRes } from "@/types/studentIdRes";
@@ -27,8 +27,8 @@ export default class StudentService {
         return axios.delete(dataURL);
     }
 
-    static updateStudent(studentId: string): Promise<ResponseData> {
+    static updateStudent(studentId: string, studentDetails: NewStudent): Promise<StudentIdRes> {
         const dataURL = `${this.URL}/${studentId}`
-        return axios.put(dataURL);
+        return axios.patch(dataURL, studentDetails);
     }
 }

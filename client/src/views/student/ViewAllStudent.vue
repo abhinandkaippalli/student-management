@@ -19,7 +19,7 @@
             <router-link :to="`/view-student/${student._id}`">
               <button class="btn-primary ml-1 text-white fw-7">View</button>
             </router-link>
-            <router-link :to="`/edit-student`">
+            <router-link :to="`/edit-student/${student._id}`">
               <button class="btn-error ml-1 text-white fw-7">Edit</button>
             </router-link>
           </td>
