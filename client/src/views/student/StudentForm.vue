@@ -32,6 +32,7 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue'
+// import { useRouter } from 'vue-router'
 import StudentService from '@/services/StudentService'
 //import { Student } from '@/types/student'
 import { NewStudent } from '@/types/newStudent'
@@ -40,7 +41,7 @@ export default defineComponent({
     name: 'StudentVue',
 
     setup() {
-        
+        // const route = useRouter();
         const studentDetails = ref<NewStudent>({
             name: '',
             email: '',
@@ -50,7 +51,10 @@ export default defineComponent({
 
         const addStudent = () => {
             StudentService.createStudent(studentDetails.value)
-                .then(() => {
+                .then((res) => {
+                    if(res) {                        
+                        location.reload();
+                    }
                     console.log(studentDetails.value);
                     console.log('Student added successfully')
                 }).catch((error) => {
